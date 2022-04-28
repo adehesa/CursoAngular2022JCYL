@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CentroComponent implements OnInit {
 
-  @Input() centro: string = '';
+  @Input() centro: any = [];
 
   constructor() { }
 

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
 
-  currentCentro = "JCYL"
+  currentCentro = {nombre: 'JCYL'}
   constructor() { }
 
   ngOnInit(): void {
