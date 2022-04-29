@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectorCentroComponent implements OnInit {
 
-  centros = [{nombre: "Fernando de Rojas"}, {nombre: "Agustinas"}];
+  centros = [{nombre: "Fernando de Rojas", fechaCreacion: new Date('01/02/2018')}, {nombre: "Agustinas", fechaCreacion: new Date('01/12/2015')}];
   centroSeleccionado: any = {};
   centrosFiltrados: any = {};
 
   constructor() {
-    this.centroSeleccionado = {nombre : ""};
+    this.centroSeleccionado = {nombre : "", fechaCreacion: ""};
     this.centroFilter("");
   }
 
@@ -24,12 +24,21 @@ export class SelectorCentroComponent implements OnInit {
   }
 
   centro(inputEvent: any) {
+    if (inputEvent.target.value == "") {
+      this.centroSeleccionado = {nombre : "", fechaCreacion: ""};
+    }
     this.centroFilter(inputEvent.target.value);
+
   }
 
   centroFilter(centroSel: string) {
     this.centrosFiltrados = this.centros.filter(centro =>
       centro.nombre.includes(centroSel));
+  }
+
+  existeFechaCreacion() {
+    console.log(this.centroSeleccionado.nombre);
+    return this.centroSeleccionado.nombre != "";
   }
 
 }

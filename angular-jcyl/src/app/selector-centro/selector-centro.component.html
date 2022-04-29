@@ -1,6 +1,17 @@
-<input (keyup)="centro($event)"  [value]="centroSeleccionado.nombre">
+<table>
+  <tr>
+    <td><input (keyup)="centro($event)"  [value]="centroSeleccionado.nombre"></td>
+    <td>
+      <div *ngIf="existeFechaCreacion()">{{centroSeleccionado.fechaCreacion | date: 'fullDate'}}</div>
+    </td>
+  </tr>
+</table>
 
 <ul *ngFor="let centro of centrosFiltrados">
   <li [ngStyle]="{'font-weight': 'bold',  'type': 'square', 'line-height': '5px'}" (click)="seleccionarCentro(centro)">{{centro.nombre}}</li>
 </ul>
 
+<P *ngIf="existeFechaCreacion()">
+  JSON:
+  {{centroSeleccionado | json }}
+</P>
