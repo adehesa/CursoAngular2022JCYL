@@ -1,0 +1,15 @@
+<h2>Solicitud de comedor</h2>
+
+<p [style]="{'font-weight': 'bold'}">Nombre</p>
+  <input (keyup)="setField($event, 'N')" maxlength="20" #nom>&nbsp;<small style="color: red" *ngIf="this.nombre.length == 0">El nombre no pueden ser nulos</small>
+
+
+<p [style]="{'font-weight': 'bold'}">Apellidos</p>
+  <input (keyup)="setField($event, 'A')" maxlength="40" #app>&nbsp;<small style="color: red" *ngIf="this.apellidos.length == 0">Los apellidos no pueden ser nulos</small>
+<p>
+  <button (click)="addSol();nom.value='';app.value=''" [disabled]="this.nombre.length == 0 || this.apellidos.length == 0">Add</button>
+</p>
+<P *ngIf="this.solicitud != null">
+  <app-paginador [listaSolicitudes]="listaSolicitudes"></app-paginador>
+</P>
+

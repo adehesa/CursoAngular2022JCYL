@@ -1,0 +1,9 @@
+.table .column{
+  width: 260px;
+  height: 30px;
+  float: left;
+}
+
+.table .column.first{
+  clear: left;
+}
