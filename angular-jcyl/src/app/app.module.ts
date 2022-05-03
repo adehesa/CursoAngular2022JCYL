@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
-import { PaginadorComponent } from './paginador/paginador.component';
-import { FilaPaginadorComponent } from './fila-paginador/fila-paginador.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SolicitudComponent,
-    PaginadorComponent,
-    FilaPaginadorComponent
+    SolicitudComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+	HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

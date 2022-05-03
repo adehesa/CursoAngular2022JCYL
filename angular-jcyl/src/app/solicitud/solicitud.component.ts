@@ -9,38 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
 
-  nombre: string = ""
-  apellidos: string = ""
-  solicitud: any = null
-
+  solicitud : any
   constructor(private solicitudesService: SolicitudesService) {
-
   }
 
   ngOnInit(): void {
   }
 
   getSolicitudes() {
-    return this.solicitudesService.getSolicitudes();
+    this.solicitud = this.solicitudesService.getSolicitudes().then((x: any) => this.solicitud = x);
   }
-
-  addSol() {
-    this.solicitud = {nombre: this.nombre, apellidos: this.apellidos}
-    this.solicitudesService.addSol(this.solicitud);
-    this.nombre = ""
-    this.apellidos = ""
-  }
-
-  esVacio(valor: string) {
-    return valor.length == 0
-  }
-
-  setField(evt: any, type: string) {
-    if (type == 'N') {
-      this.nombre = evt.target.value
-    } else if (type == 'A') {
-      this.apellidos = evt.target.value
-    }
-  }
-
 }

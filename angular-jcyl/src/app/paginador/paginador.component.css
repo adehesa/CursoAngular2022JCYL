@@ -1,8 +1,0 @@
-.table .column{
-  width: 260px;
-  float: left;
-}
-
-.table .column.first{
-  clear: left;
-}

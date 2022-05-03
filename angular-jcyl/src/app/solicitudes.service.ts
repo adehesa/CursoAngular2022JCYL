@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
+import {
+  HttpClient
+} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class SolicitudesService {
-  private listaSolicitudes: any = [{nombre: "Nombre Inicial por Servicio", apellidos: "Apellidos Inicial por Servicio"}];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  getSolicitudes() : []  {
-    return this.listaSolicitudes;
+  getSolicitudes() : any  {
+    return this.httpClient.get('https://jsonplaceholder.typicode.com/todos/1')
+      .toPromise();
   }
 
-  addSol(sol: any) {
-    this.listaSolicitudes.push(sol);
-  }
 }
 
 
