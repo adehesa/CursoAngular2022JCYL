@@ -1,4 +1,6 @@
+import { SolicitudesService } from './../solicitudes.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-solicitud',
@@ -10,16 +12,21 @@ export class SolicitudComponent implements OnInit {
   nombre: string = ""
   apellidos: string = ""
   solicitud: any = null
-  listaSolicitudes: any = []
 
-  constructor() { }
+  constructor(private solicitudesService: SolicitudesService) {
+
+  }
 
   ngOnInit(): void {
   }
 
+  getSolicitudes() {
+    return this.solicitudesService.getSolicitudes();
+  }
+
   addSol() {
     this.solicitud = {nombre: this.nombre, apellidos: this.apellidos}
-    this.listaSolicitudes.push(this.solicitud);
+    this.solicitudesService.addSol(this.solicitud);
     this.nombre = ""
     this.apellidos = ""
   }

@@ -9,7 +9,7 @@
 <p>
   <button (click)="addSol();nom.value='';app.value=''" [disabled]="this.nombre.length == 0 || this.apellidos.length == 0">Add</button>
 </p>
-<P *ngIf="this.solicitud != null">
-  <app-paginador [listaSolicitudes]="listaSolicitudes"></app-paginador>
+<P *ngIf="getSolicitudes() != null">
+  <app-paginador [listaSolicitudes]="getSolicitudes()"></app-paginador>
 </P>
 
