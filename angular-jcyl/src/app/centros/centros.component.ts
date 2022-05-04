@@ -12,8 +12,8 @@ export class CentrosComponent implements OnInit {
 
   centro: any
   constructor(private centrosService: CentrosService, private route: ActivatedRoute) {
-    this.route.paramMap.subscribe((parametros: ParamMap) => {
-      this.centro = {centro: parametros.get("nombre"), horario: parametros.get("horario")}
+    this.route.paramMap.subscribe( (parametros: ParamMap) => {
+      this.centro = {centro: parametros.get("id")}
     })
   }
 
