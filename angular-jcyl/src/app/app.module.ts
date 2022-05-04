@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
+import { CentrosComponent } from './centros/centros.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SolicitudComponent
+    SolicitudComponent,
+    CentrosComponent
   ],
   imports: [
     BrowserModule,
