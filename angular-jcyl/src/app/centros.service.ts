@@ -7,8 +7,7 @@ export class CentrosService {
 
   constructor() { }
 
-  getCentros() : any  {
-    console.log("llego");
-    return {centro: "JCYL", horario: "09:00-18:00" }
+  getCentro(c: any, h: any) : any  {
+    return {centro: c.nombre, horario: c.horario }
   }
 }

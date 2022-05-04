@@ -1,5 +1,6 @@
 import { CentrosService } from './../centros.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-centros',
@@ -8,14 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CentrosComponent implements OnInit {
 
-  centro : any
-  constructor(private centrosService: CentrosService) { }
 
-  ngOnInit(): void {
+  centro: any
+  constructor(private centrosService: CentrosService, private route: ActivatedRoute) {
+    this.route.paramMap.subscribe((parametros: ParamMap) => {
+      this.centro = {centro: parametros.get("nombre"), horario: parametros.get("horario")}
+    })
   }
 
-  getCentros() {
-    this.centro = this.centrosService.getCentros();
+  ngOnInit(): void {
   }
 
 }

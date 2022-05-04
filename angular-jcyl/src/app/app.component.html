@@ -1,8 +1,8 @@
-<h1>Angular Router - Ej 16</h1>
+<h1>Angular Router - Ej 17</h1>
 <nav>
   <ul>
     <li><a routerLink="solicitud" routerLinkActive="active">Solicitud</a></li>
-    <li><a routerLink="centros" routerLinkActive="active">Centros</a></li>
+    <li><button [routerLink]="['/centro', 'JCYL', '09:00-19:00']">Consultar Centro</button></li>
   </ul>
 </nav>
 <router-outlet></router-outlet>
