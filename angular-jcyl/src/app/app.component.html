@@ -2,7 +2,8 @@
 <nav>
   <ul>
     <li><a routerLink="solicitud" routerLinkActive="active">Solicitud</a></li>
-    <li><button [routerLink]="['/centro', '1']">Consultar Centro</button></li>
+    <li><a [routerLink]="['/centro', '2']">Enlace a Centro</a></li>
+    <li><button (click)="irToCentro()">Boton a Centro</button></li>
   </ul>
 </nav>
 <router-outlet></router-outlet>
