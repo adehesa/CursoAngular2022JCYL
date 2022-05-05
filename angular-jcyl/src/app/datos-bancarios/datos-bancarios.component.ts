@@ -11,16 +11,15 @@ import {NgForm} from '@angular/forms';
 
 export class DatosBancariosComponent implements OnInit {
 
-  model: datosBancarios = new datosBancarios();
-
-  constructor() { }
+  model: datosBancarios = new datosBancarios()
+  submited : boolean = false
+  constructor() {  }
 
   ngOnInit(): void { }
 
   submit(f: NgForm) {
     console.log(f.value);
-    console.log(f.value.pais)
-    console.log(this.model.pais)
+    this.submited = true;
   }
 
 
