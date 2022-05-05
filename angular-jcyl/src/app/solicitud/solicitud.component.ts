@@ -1,5 +1,6 @@
 import { SolicitudesService } from './../solicitudes.service';
 import { Component, OnInit } from '@angular/core';
+import { delay, Observable } from 'rxjs';
 
 
 @Component({
@@ -9,14 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
 
-  solicitud : any
+  solicitud: any;
   constructor(private solicitudesService: SolicitudesService) {
+    this.solicitud = this.solicitudesService.getSolicitudes()
   }
 
   ngOnInit(): void {
   }
 
-  getSolicitudes() {
-    this.solicitud = this.solicitudesService.getSolicitudes().then((x: any) => this.solicitud = x);
-  }
 }

@@ -1,11 +1,12 @@
 <h2>Solicitudes con servicio HTTP</h2>
 
-<p>
-  <button (click)="getSolicitudes()">Get Solicitudes</button>
-</p>
-
-<div>
-  {{this.solicitud | json}}
+<div *ngIf="solicitud | async as resolved; else loading">
+  {{resolved | json}}
 </div>
+
+<ng-template #loading>
+  <p>Cargando ...</p>
+</ng-template>
+
 
 
