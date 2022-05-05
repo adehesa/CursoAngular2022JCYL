@@ -4,16 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { SolicitudComponent } from './solicitud/solicitud.component';
+import { DatosBancariosComponent } from './datos-bancarios/datos-bancarios.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SolicitudComponent
+    DatosBancariosComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
 	HttpClientModule

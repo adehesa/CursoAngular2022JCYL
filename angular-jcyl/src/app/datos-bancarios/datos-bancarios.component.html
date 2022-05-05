@@ -1,0 +1,100 @@
+<div class="container">
+  <h1>Datos Bancarios</h1>
+  <form (ngSubmit)="submit(f)" #f="ngForm">
+    <div class="form-group">
+        <div class="form-group row">
+          <div class="col-md-1">
+            <label for="name">Pais</label>
+          </div>
+          <div class="col-xs-1">
+            <input type="text"  class="form-control" id="pais"
+                required
+                [(ngModel)]="model.pais" name="pais">
+          </div>
+          <div class="col-md-1">
+            <label for="name">Iban Control</label>
+          </div>
+          <div class="col-xs-1">
+            <input type="text"  class="form-control" id="iban"
+                required
+                [(ngModel)]="model.iban" name="iban">
+          </div>
+          <div class="col-md-1">
+            <label for="name">Entidad</label>
+          </div>
+          <div class="col-xs-1">
+            <input type="text"  class="form-control" id="entidad"
+                required
+                [(ngModel)]="model.entidad" name="entidad">
+          </div>
+          <div class="col-md-1">
+            <label for="name">Sucursal</label>
+          </div>
+          <div class="col-xs-1">
+            <input type="text"  class="form-control" id="sucursal"
+                required
+                [(ngModel)]="model.sucursal" name="sucursal">
+          </div>
+          <div class="col-md-1">
+            <label for="name">DC</label>
+          </div>
+          <div class="col-xs-1">
+            <input type="text"  class="form-control" id="dc"
+                required
+                [(ngModel)]="model.dc" name="dc">
+          </div>
+          <div class="col-md-1">
+            <label for="name">Cuenta</label>
+          </div>
+          <div class="col-xs-1">
+            <input type="text"  class="form-control" id="cuenta"
+                required
+                [(ngModel)]="model.cuenta" name="cuenta">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-1">
+            <label for="name">Documento</label>
+          </div>
+          <div class="col-md-1">
+            <select style="width:auto;" class="form-control"  id="docSel"
+                  required
+                  [(ngModel)]="model.docSel" name="docSel">
+              <option *ngFor="let doc of model.listaDoc" [value]="doc">{{doc}}</option>
+            </select>
+          </div>
+          <div class="col-xs-2">
+            <input type="text"  class="form-control" id="documentoOtro"
+                required
+                [(ngModel)]="model.docTxt" name="docTxt">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-1">
+            <label for="alterEgo">Nombre</label>
+          </div>
+          <div class="col-xs-2">
+            <input size="125" type="text"  class="form-control" id="nombre"
+                required
+                [(ngModel)]="model.nombre" name="nombre">
+          </div>
+          <div class="col-md-1">
+            <label for="power">Apellidos</label>
+          </div>
+          <div class="col-xs-4">
+            <input size="55" type="text" class="form-control" id="apellido1"
+                required
+                [(ngModel)]="model.apellido1" name="apellido1">
+          </div>
+          <div class="col-xs-4">
+            <input size="55" type="text" class="form-control" id="apellido2"
+                [(ngModel)]="model.apellido2" name="apellido2">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Submit</button>
+  </form>
+</div>
