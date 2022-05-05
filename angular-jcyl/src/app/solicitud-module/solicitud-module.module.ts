@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SolicitudComponent } from '../solicitud/solicitud.component';
+import { SolicitudComponent } from './solicitud/solicitud.component';
 
 
 

@@ -1,4 +1,4 @@
-import { SolicitudesService } from './../solicitudes.service';
+import { SolicitudesService } from './solicitudes.service';
 import { Component, OnInit } from '@angular/core';
 import { delay, Observable } from 'rxjs';
 
