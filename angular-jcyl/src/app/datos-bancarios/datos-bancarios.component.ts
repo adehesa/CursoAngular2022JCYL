@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { datosBancarios } from './datosBancarios';
-import {NgForm} from '@angular/forms';
+import {FormControl, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-datos-bancarios',
@@ -18,7 +18,12 @@ export class DatosBancariosComponent implements OnInit {
   ngOnInit(): void { }
 
   submit(f: NgForm) {
+    console.log(f.form);
     console.log(f.value);
+    if (f.form.controls["dc"].errors) {
+      //nunca va a llegar aqui porque en button existe [disabled]="!f.form.valid"
+      console.log("DC tiene errores", f.form.controls["dc"].errors);
+    }
     this.submited = true;
   }
 
