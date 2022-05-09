@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { datosBancarios } from './datosBancarios';
-import {FormControl, NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-datos-bancarios',
@@ -13,19 +13,27 @@ export class DatosBancariosComponent implements OnInit {
 
   model: datosBancarios = new datosBancarios()
   submited : boolean = false
-  constructor() {  }
+
+  f: FormGroup;
+  constructor(private formsBuilder: FormBuilder) {
+    this.f = formsBuilder.group({ pais: '', iban: '', entidad: '', sucursal: '', dc: '', cuenta: '', docSel: '', docTxt: '', nombre: '', apellido1: '', apellido2: '' });
+  }
 
   ngOnInit(): void { }
 
-  submit(f: NgForm) {
-    console.log(f.form);
-    console.log(f.value);
-    if (f.form.controls["dc"].errors) {
-      //nunca va a llegar aqui porque en button existe [disabled]="!f.form.valid"
-      console.log("DC tiene errores", f.form.controls["dc"].errors);
+  submit() {
+    console.log(this.f.value);
+    console.log(this.f.controls["dc"].value);
+    console.log(this.f.controls["dc"].errors);
+    if (this.f.controls["dc"].errors) {
+      //nunca va a llegar aqui porque en button existe [disabled]="!f.valid"
+      console.log("DC tiene errores", this.f.controls["dc"].errors);
     }
     this.submited = true;
   }
+
+
+
 
 
 

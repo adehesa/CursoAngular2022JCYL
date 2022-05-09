@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Datos Bancarios</h1>
-  <form (ngSubmit)="submit(f)" #f="ngForm">
+  <form class="ui form" [formGroup]="f">
     <div class="form-group">
         <div class="form-group row">
           <div class="col-md-1">
@@ -8,8 +8,7 @@
           </div>
           <div class="col-xs-1">
             <input type="text"  class="form-control" id="pais"
-                required
-                [(ngModel)]="model.pais" name="pais">
+                required name="pais" formControlName="pais">
           </div>
           <div class="col-md-1">
             <label for="iban">Iban Control</label>
@@ -17,7 +16,7 @@
           <div class="col-xs-1">
             <input type="text"  class="form-control" id="iban"
                 required minlength="4" maxlength="4"
-                [(ngModel)]="model.iban" name="iban">
+                name="iban" formControlName="iban">
           </div>
           <div class="col-md-1">
             <label for="entidad">Entidad</label>
@@ -25,7 +24,7 @@
           <div class="col-xs-1">
             <input type="text"  class="form-control" id="entidad"
                 required
-                [(ngModel)]="model.entidad" name="entidad">
+                name="entidad" formControlName="entidad">
           </div>
           <div class="col-md-1">
             <label for="sucursal">Sucursal</label>
@@ -33,7 +32,7 @@
           <div class="col-xs-1">
             <input type="text"  class="form-control" id="sucursal"
                 required
-                [(ngModel)]="model.sucursal" name="sucursal">
+                name="sucursal" formControlName="sucursal">
           </div>
           <div class="col-md-1">
             <label for="dc">DC</label>
@@ -41,7 +40,7 @@
           <div class="col-xs-1">
             <input type="text"  class="form-control" id="dc"
                 required minlength="2" maxlength="2"
-                [(ngModel)]="model.dc" name="dc">
+                name="dc" formControlName="dc">
           </div>
           <div class="col-md-1">
             <label for="cuenta">Cuenta</label>
@@ -49,7 +48,7 @@
           <div class="col-xs-1">
             <input type="text"  class="form-control" id="cuenta"
                 required
-                [(ngModel)]="model.cuenta" name="cuenta">
+                name="cuenta" formControlName="cuenta">
           </div>
         </div>
 
@@ -60,14 +59,14 @@
           <div class="col-md-1">
             <select style="width:auto;" class="form-control"  id="docSel"
                   required
-                  [(ngModel)]="model.docSel" name="docSel">
+                  name="docSel" formControlName="docSel">
               <option *ngFor="let doc of model.listaDoc" [value]="doc">{{doc}}</option>
             </select>
           </div>
           <div class="col-xs-2">
             <input type="text"  class="form-control" id="documentoOtro"
                 required
-                [(ngModel)]="model.docTxt" name="docTxt">
+                name="docTxt" formControlName="docTxt">
           </div>
         </div>
 
@@ -78,7 +77,7 @@
           <div class="col-xs-2">
             <input size="125" type="text"  class="form-control" id="nombre"
                 required
-                [(ngModel)]="model.nombre" name="nombre">
+                name="nombre" formControlName="nombre">
           </div>
           <div class="col-md-1">
             <label for="apellido1">Apellidos</label>
@@ -86,16 +85,16 @@
           <div class="col-xs-4">
             <input size="55" type="text" class="form-control" id="apellido1"
                 required
-                [(ngModel)]="model.apellido1" name="apellido1">
+                name="apellido1" formControlName="apellido1">
           </div>
           <div class="col-xs-4">
             <input size="55" type="text" class="form-control" id="apellido2"
-                [(ngModel)]="model.apellido2" name="apellido2">
+                name="apellido2" formControlName="apellido2">
           </div>
         </div>
       </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success" (click)="submit()" [disabled]="!f.valid">Submit</button>
   </form>
 </div>
 
